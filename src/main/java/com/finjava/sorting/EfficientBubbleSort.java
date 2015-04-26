@@ -8,16 +8,19 @@ public class EfficientBubbleSort implements Sort {
 	private Swap swap=new SwapImpl(); 
 	
 	@Override
-	public void sort(List<Integer> unsortedList) {
+	public void sort(List<Integer> list) {
 	
-		int size  = unsortedList.size();
+		int size  = list.size();
 		boolean swapDone = true; 
 		int i = 0; 
 		while (swapDone && i<size){
 			swapDone = false;
 			for (int j=i+1; j< size ; j++ ){
-				if (unsortedList.get(i)  >= unsortedList.get(j)){
-					swap.process(unsortedList, i , j); 
+				
+				if (list.get(i)  >= list.get(j)){
+					if (list.get(i) > list.get(j)){
+						swap.process(list, i , j); 
+					}
 					swapDone=true;
 				}
 			}
